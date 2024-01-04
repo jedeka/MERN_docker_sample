@@ -1,0 +1,20 @@
+/* Apply flex display to the list item */
+.pc-condensed {
+    display: flex;
+    align-items: center; /* To vertically align content */
+}
+
+/* Style the X button */
+.pc-condensed a {
+    margin-right: 10px; /* Add some space between the button and text */
+}
+
+/* Style the product text */
+.pc-condensed p {
+    margin: 0; /* Reset the default margin */
+    color: black;
+}
+
+.btn-outline-danger {
+    color: black;
+}

@@ -1,0 +1,21 @@
+.card-img-top {
+    color: black;
+}
+
+.card-text {
+    color: gray;
+}
+
+.card-title {
+    color: black;
+}
+
+/* Product class related */
+.product {
+    width: 15rem;
+
+}
+
+.product img {
+    max-height: 10rem;
+}
