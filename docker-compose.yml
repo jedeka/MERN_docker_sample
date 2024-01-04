@@ -1,0 +1,39 @@
+version: "3"
+
+services:
+  node:
+    # image: node:latest
+    image: webtest
+    container_name: server 
+    volumes:
+      - .:/home  # equal to "$PWD:/home"
+    working_dir: /home/test_react/webtest
+    ports: # Mapping local computer's port to the server container, so we can access with localhost
+      - 3000:3000
+      - 3004:3004
+    command: nodemon /home/test_react/webtest/src/server.js #tail -f /dev/null
+    # # Specifying the network this container is operating on
+    # networks:
+    #   - website-bridge-network
+    # entrypoint: ["npm start"z
+
+  db:
+    image: mongo
+    container_name: db
+    ports: # Mapping local computer's port to the db container , so we can access with localhost
+      - 2717:27017  
+    command: mongod #--port 27017
+    volumes: # Keep the volume (here: the DB) persists and not lose the data
+      - db:/data/db
+    restart: always # Should the container fails, it will auto restart
+    # networks:
+    #   - website-bridge-network
+
+# For custom bridging network configuration
+# networks:
+#   website-bridge-network:
+#     driver: bridge
+
+# If we are not binding existing local directory, we should specify the volume here in order to make the data persists
+volumes:
+  db: 
